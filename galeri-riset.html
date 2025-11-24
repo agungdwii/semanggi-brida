@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Galeri Riset - Semanggi</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Nunito:wght@600;700&family=Public+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="galeri-riset.css" />
+</head>
+<body>
+
+  <div class="page">
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+      <div class="navbar-left">
+        <div class="brand">
+          <img src="picture/logo semanggi kuning.png" alt="Semanggi Brida Surabaya" class="brand-logo-img" />
+        </div>
+
+        <nav class="nav-links">
+          <a href="#" class="nav-link nav-pill">Beranda</a>
+          <a href="#" class="nav-link nav-pill">Riset</a>
+          <a href="#" class="nav-link nav-pill active">Galeri Riset</a>
+          <a href="#" class="nav-link nav-pill">Bantuan</a>
+          <a href="#" class="nav-link nav-pill">Contact</a>
+        </nav>
+      </div>
+
+      <div class="navbar-right">
+        <button class="profile-btn">
+          <span class="profile-name">Agung Dwi</span>
+          <img src="picture/profile-agung.png" alt="" class="profile-photo" />
+        </button>
+      </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="main">
+
+      <!-- HEADER -->
+      <section class="gallery-header">
+        <h1 class="gallery-title">Selamat Datang di Galeri Riset</h1>
+        <p class="gallery-subtitle">
+          Temukan, unduh, dan kelola kajian yang telah dipublikasikan sesuai dengan hak akses Anda.
+        </p>
+
+        <div class="gallery-search">
+          <div class="search-icon"></div>
+          <input type="text" class="search-input" placeholder="Cari berdasarkan judul, penulis, atau kategori" />
+        </div>
+      </section>
+
+      <!-- FILTERS -->
+      <section class="gallery-filters">
+        <button class="chip chip-outline"><span class="chip-icon chip-icon-filter"></span>Filter</button>
+        <button class="chip chip-outline"><span class="chip-icon chip-icon-year"></span>Tahun</button>
+        <button class="chip chip-outline"><span class="chip-icon chip-icon-category"></span>Kategori</button>
+        <button class="chip chip-outline"><span class="chip-icon chip-icon-author"></span>Penulis</button>
+        <button class="chip chip-outline"><span class="chip-icon chip-icon-license"></span>Tipe Lisensi</button>
+
+        <button class="chip chip-primary"><span class="chip-icon chip-icon-plus"></span>Tambah Riset Baru</button>
+      </section>
+
+      <!-- GRID -->
+      <section class="gallery-grid">
+
+        <!-- 6 Card (contoh, placeholder) -->
+        <article class="research-card">
+          <div class="card-thumb"><img src="picture/card-1.png" /></div>
+          <h3 class="card-title">Analisis Dampak Pembangunan Infrastruktur Terhadap Ekonomi Lokal</h3>
+          <p class="card-author">Oleh: Dr. Budi Santoso</p>
+          <div class="card-badges"><span class="badge badge-public">Publik</span><span class="badge badge-cc">CC BY</span></div>
+          <a href="#" class="card-link">Lihat Detail →</a>
+        </article>
+
+        <article class="research-card">
+          <div class="card-thumb"><img src="picture/card-2.png" /></div>
+          <h3 class="card-title">Kajian Kualitas Udara di Pusat Kota Surabaya Tahun 2023</h3>
+          <p class="card-author">Oleh: Prof. Rina Wijaya</p>
+          <div class="card-badges"><span class="badge badge-government">Pemerintah</span><span class="badge badge-cc">CC BY-NC</span></div>
+          <a href="#" class="card-link">Lihat Detail →</a>
+        </article>
+
+        <article class="research-card">
+          <div class="card-thumb"><img src="picture/card-3.png" /></div>
+          <h3 class="card-title">Strategi Peningkatan Partisipasi Masyarakat dalam Program Daur Ulang</h3>
+          <p class="card-author">Oleh: Dinas Lingkungan Hidup</p>
+          <div class="card-badges"><span class="badge badge-public">Publik</span><span class="badge badge-cc">CC BY-SA</span></div>
+          <a href="#" class="card-link">Lihat Detail →</a>
+        </article>
+
+        <article class="research-card">
+          <div class="card-thumb"><img src="picture/card-4.png" /></div>
+          <h3 class="card-title">Model Prediksi Kebutuhan Air Bersih di Wilayah Surabaya Timur</h3>
+          <p class="card-author">Oleh: Dr. Ahmad Fauzi</p>
+          <div class="card-badges"><span class="badge badge-limited">Terbatas</span><span class="badge badge-internal">Terbatas</span></div>
+          <a href="#" class="card-link">Lihat Detail →</a>
+        </article>
+
+        <article class="research-card">
+          <div class="card-thumb"><img src="picture/card-5.png" /></div>
+          <h3 class="card-title">Efektivitas Program Pendidikan Karakter di Sekolah Dasar Negeri</h3>
+          <p class="card-author">Oleh: Universitas Negeri Surabaya</p>
+          <div class="card-badges"><span class="badge badge-public">Publik</span><span class="badge badge-cc">CC BY</span></div>
+          <a href="#" class="card-link">Lihat Detail →</a>
+        </article>
+
+        <article class="research-card">
+          <div class="card-thumb"><img src="picture/card-6.png" /></div>
+          <h3 class="card-title">Pengembangan Ruang Terbuka Hijau untuk Mitigasi Perubahan Iklim</h3>
+          <p class="card-author">Oleh: ITS Surabaya</p>
+          <div class="card-badges"><span class="badge badge-government">Pemerintah</span><span class="badge badge-cc">CC BY-NC-ND</span></div>
+          <a href="#" class="card-link">Lihat Detail →</a>
+        </article>
+
+      </section>
+
+      <!-- PAGINATION -->
+      <section class="pagination">
+        <button class="page-btn icon-btn">«</button>
+        <button class="page-btn icon-btn">‹</button>
+        <button class="page-btn">1</button>
+        <button class="page-btn page-active">2</button>
+        <button class="page-btn">3</button>
+        <button class="page-btn icon-btn">›</button>
+        <button class="page-btn icon-btn">»</button>
+      </section>
+
+      <!-- CTA -->
+      <section class="cta-section">
+        <div class="cta-illustration">
+          <img src="picture/ask.png" />
+        </div>
+        <div class="cta-content">
+          <h2 class="cta-title">Ngga nemu kajian pilihanmu?</h2>
+          <p class="cta-text">Isi formulir berikut untuk mendapatkan akses repositori riset secara lengkap.</p>
+          <button class="btn-cta">Form Pengajuan Akses</button>
+        </div>
+      </section>
+
+    </main>
+
+  </div>
+
+</body>
+</html>

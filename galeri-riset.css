@@ -1,0 +1,384 @@
+/* ----------------------------------------------------
+   PALET WARNA
+---------------------------------------------------- */
+:root {
+  --yellow: #FFB000;
+  --green-dark: #006131;
+  --green-deep: #033821;
+  --cream: #F4EDCD;
+  --orange: #FF8400;
+  --green-light: #2DC653;
+
+  --grey-border: #E5E7EB;
+}
+
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Inter, sans-serif;
+  background: #ffffff !important;  /* FULL WHITE */
+  color: #111827;
+}
+
+.page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-bottom: 72px;
+}
+
+/* ----------------------------------------------------
+   NAVBAR
+---------------------------------------------------- */
+.navbar {
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Brand */
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.brand-logo-img {
+  height: 46px;
+}
+
+.brand-title {
+  font-family: Nunito, sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  color: var(--yellow);
+}
+
+.brand-sub {
+  font-size: 14px;
+  color: var(--yellow);
+  text-shadow: 1px 5px 5px rgba(224,230,237,0.46);
+}
+
+/* Nav links */
+.nav-links {
+  display: flex;
+  gap: 26px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #0e1726;
+  font-family: Nunito, sans-serif;
+  font-weight: 700;
+}
+
+.nav-pill {
+  padding: 8px 22px;
+  border-radius: 999px;
+}
+
+.nav-pill.active {
+  background: var(--yellow);
+}
+
+/* Right profile */
+.profile-btn {
+  background: var(--yellow);
+  border: none;
+  padding: 8px 20px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: Nunito, sans-serif;
+  font-weight: 700;
+}
+
+.profile-photo {
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  object-fit: cover;
+}
+
+/* ----------------------------------------------------
+   MAIN CONTENT
+---------------------------------------------------- */
+.main {
+  padding-top: 40px;
+}
+
+/* Header */
+.gallery-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.gallery-title {
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.gallery-subtitle {
+  font-size: 16px;
+  color: #3b3f5c;
+  margin-top: 8px;
+}
+
+/* Search */
+.gallery-search {
+  width: 1072px;
+  max-width: 100%;
+  height: 48px;
+  margin: 24px auto 0;
+  border: 1px solid var(--green-deep);
+  border-radius: 8px;
+  display: flex;
+  overflow: hidden;
+}
+
+.search-icon {
+  width: 48px;
+  border-right: 1px solid var(--green-deep);
+  position: relative;
+}
+
+/* simple ikon search */
+.search-icon::before {
+  content: '';
+  width: 18px;
+  height: 18px;
+  border: 3px solid #3b3f5c;
+  border-radius: 50%;
+  position: absolute;
+  top: 12px;
+  left: 12px;
+}
+
+.search-icon::after {
+  content: '';
+  width: 10px;
+  height: 3px;
+  background: #3b3f5c;
+  position: absolute;
+  right: 10px;
+  bottom: 14px;
+  transform: rotate(45deg);
+}
+
+.search-input {
+  flex: 1;
+  border: none;
+  padding: 0 12px;
+  font-family: 'Public Sans';
+  font-size: 14px;
+}
+
+/* ----------------------------------------------------
+   FILTERS
+---------------------------------------------------- */
+.gallery-filters {
+  margin-top: 26px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.chip {
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-family: 'Public Sans';
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  background: white;
+}
+
+.chip-outline {
+  border: 1px solid var(--green-deep);
+}
+
+.chip-primary {
+  background: var(--green-deep);
+  color: white;
+  border: none;
+}
+
+.chip-icon {
+  width: 14px;
+  height: 14px;
+  background: #000;
+  border-radius: 3px;
+}
+
+/* ----------------------------------------------------
+   GRID KARTU
+---------------------------------------------------- */
+.gallery-grid {
+  margin-top: 32px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.research-card {
+  background: white;
+  border: 1px solid var(--grey-border);
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 1px 6px 7px rgba(224,230,237,0.46);
+}
+
+.card-thumb {
+  width: calc(100% + 32px);
+  height: 190px;
+  background: #c4c4c4;
+  border-radius: 12px 12px 0 0;
+  margin-left: -16px;
+  margin-right: -16px;
+  overflow: hidden;
+}
+
+.card-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-title {
+  margin-top: 14px;
+  font-family: 'Public Sans';
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.card-author {
+  margin-top: 6px;
+  color: #896161;
+  font-size: 14px;
+}
+
+.card-badges {
+  margin-top: 10px;
+  display: flex;
+  gap: 8px;
+}
+
+.badge {
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-family: 'Public Sans';
+}
+
+.badge-public { background:#DCFCE7; color:#166534;}
+.badge-cc { background:#DBEAFE; color:#1E40AF;}
+.badge-government { background:#FFEDD5; color:#9A3412;}
+.badge-limited { background:#FEE2E2; color:#991B1B;}
+.badge-internal { background:#E5E7EB; color:#1F2937;}
+
+.card-link {
+  margin-top: 14px;
+  display: inline-block;
+  color: #EC1313;
+  font-weight: 600;
+  font-family: 'Public Sans';
+  font-size: 14px;
+  text-decoration: none;
+}
+
+/* ----------------------------------------------------
+   PAGINATION
+---------------------------------------------------- */
+.pagination {
+  margin-top: 36px;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.page-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  background: #E0E6ED;
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.page-active {
+  background: var(--green-deep);
+  color: white;
+}
+
+/* ----------------------------------------------------
+   CTA SECTION
+---------------------------------------------------- */
+.cta-section {
+  margin-top: 60px;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.cta-illustration img {
+  width: 100%;
+  max-width: 360px;
+  border-radius: 175px;
+}
+
+.cta-title {
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.cta-text {
+  margin-top: 6px;
+  color: #3b3f5c;
+}
+
+.btn-cta {
+  margin-top: 18px;
+  background: var(--green-deep);
+  border: none;
+  padding: 10px 32px;
+  font-family: Nunito;
+  font-size: 16px;
+  font-weight: 700;
+  color: white;
+  border-radius: 6px;
+}
+
+/* Responsive */
+@media(max-width:1024px){
+  .gallery-grid{
+    grid-template-columns: repeat(2,1fr);
+  }
+}
+
+@media(max-width:768px){
+  .gallery-grid{
+    grid-template-columns:1fr;
+  }
+
+  .cta-section{
+    grid-template-columns:1fr;
+    text-align:left;
+  }
+}

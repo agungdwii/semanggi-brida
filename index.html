@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dashboard Usulan Kajian - Semanggi</title>
+  <style>
+    :root {
+      --yellow: #FFB000;
+      --navy: #4D6699;
+      --info: #2196F3;
+      --success: #00AB55;
+      --warning: #E2A03F;
+      --danger: #E7515A;
+      --text-main: #0D121C;
+      --bg-soft: #F7FAFC;
+      --border-soft: #CFD6E8;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background: #ffffff;
+      color: var(--text-main);
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 96px;
+      gap: 32px;
+    }
+
+    .navbar-left {
+      display: flex;
+      align-items: center;
+      gap: 48px;
+    }
+
+    .logo-group {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .logo-text-main {
+      font-family: Bugaki, system-ui;
+      font-size: 32px;
+      color: var(--yellow);
+    }
+
+    .logo-text-sub {
+      font-size: 16px;
+      color: var(--yellow);
+      text-shadow: 1px 5px 5px rgba(224, 230, 237, 0.46);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      font-family: Nunito, system-ui;
+      font-size: 17px;
+      color: #0E1726;
+    }
+
+    .nav-link {
+      position: relative;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .nav-link.active {
+      font-weight: 700;
+    }
+
+    .nav-link-pill {
+      padding: 8px 24px;
+      border-radius: 999px;
+      background: var(--yellow);
+      font-weight: 700;
+    }
+
+    .navbar-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .btn-logout {
+      width: 189px;
+      height: 44px;
+      border-radius: 39px;
+      background: var(--yellow);
+      border: none;
+      cursor: pointer;
+    }
+
+    .profile-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 999px;
+      background: #d9d9d9;
+    }
+
+    .profile-name {
+      font-family: Nunito, system-ui;
+      font-size: 18px;
+      font-weight: 700;
+      color: #0E1726;
+    }
+
+    /* MAIN CONTENT */
+    .main {
+      flex: 1;
+      padding: 48px 240px 80px;
+    }
+
+    .hero {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .hero-title {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 48px;
+      margin-bottom: 8px;
+    }
+
+    .hero-subtitle {
+      font-size: 28px;
+      line-height: 36px;
+      font-weight: 400;
+    }
+
+    /* SEARCH BAR */
+    .search-wrapper {
+      max-width: 928px;
+      margin: 32px auto 24px;
+    }
+
+    .search-box {
+      display: flex;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #E8EBF2;
+    }
+
+    .search-icon {
+      width: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #E8EBF2;
+    }
+
+    .search-icon-inner {
+      width: 24px;
+      height: 24px;
+      background: #4D6699; /* placeholder icon box */
+      border-radius: 4px;
+    }
+
+    .search-input {
+      flex: 1;
+      padding: 8px 16px;
+      background: #E8EBF2;
+      border: none;
+      outline: none;
+      font-size: 16px;
+      color: #4D6699;
+    }
+
+    .search-input::placeholder {
+      color: #4D6699;
+    }
+
+    /* TABS */
+    .tabs {
+      max-width: 960px;
+      margin: 0 auto 32px;
+      display: flex;
+      gap: 32px;
+      border-bottom: 1px solid var(--border-soft);
+    }
+
+    .tab {
+      padding: 16px 0 13px;
+      border-bottom: 3px solid #E5E8EB;
+      font-size: 16px;
+      font-weight: 700;
+      color: #4D6699;
+      cursor: pointer;
+    }
+
+    .tab.active {
+      border-bottom-color: var(--info);
+      color: var(--text-main);
+    }
+
+    /* TABLE / LIST KAJIAN */
+    .kajian-table {
+      max-width: 928px;
+      margin: 0 auto;
+      background: var(--bg-soft);
+      border-radius: 8px;
+      border: 1px solid var(--border-soft);
+      overflow: hidden;
+      font-size: 16px;
+    }
+
+    .kajian-header,
+    .kajian-row {
+      display: grid;
+      grid-template-columns: 234px 217px 226px 250px;
+      border-top: 1px solid #E5E8EB;
+    }
+
+    .kajian-header {
+      background: var(--bg-soft);
+      border-top: none;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .kajian-header div {
+      padding: 12px 16px;
+    }
+
+    .kajian-row div {
+      padding: 8px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .kajian-row-title {
+      justify-content: flex-start !important;
+      text-align: left;
+    }
+
+    .kajian-date {
+      color: var(--navy);
+    }
+
+    .status-badge {
+      min-width: 84px;
+      max-width: 480px;
+      height: 32px;
+      border-radius: 8px;
+      padding: 0 16px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: 400;
+      color: #0D121C;
+      background: #E5E8EB;
+    }
+
+    .status-warning {
+      background: var(--warning);
+    }
+    .status-info {
+      background: var(--info);
+    }
+    .status-success {
+      background: var(--success);
+    }
+    .status-danger {
+      background: var(--danger);
+    }
+
+    .progress-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 12px;
+      width: 100%;
+    }
+
+    .progress-bar-bg {
+      width: 176px;
+      height: 4px;
+      background: #CFD6E8;
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .progress-bar-fill {
+      height: 4px;
+      background: #125CED;
+      border-radius: 2px;
+      width: 0;
+    }
+
+    .progress-75 {
+      width: 75%;
+    }
+    .progress-25 {
+      width: 25%;
+    }
+    .progress-100 {
+      width: 100%;
+    }
+    .progress-0 {
+      width: 0;
+    }
+
+    .progress-value {
+      font-size: 16px;
+    }
+
+    /* CTA BUTTON BAWAH */
+    .bottom-cta {
+      max-width: 928px;
+      margin: 32px auto 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    .btn-add-kajian {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 15px;
+      border-radius: 8px;
+      background: #033821;
+      color: #ffffff;
+      font-size: 16px;
+      font-family: "Public Sans", system-ui, sans-serif;
+      font-weight: 500;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-add-kajian-icon {
+      width: 20px;
+      height: 20px;
+      background: #ffffff; /* placeholder icon */
+    }
+
+    /* RESPONSIVE (optional basic) */
+    @media (max-width: 1200px) {
+      .navbar {
+        padding: 0 32px;
+      }
+      .main {
+        padding: 32px 24px 60px;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .kajian-header,
+      .kajian-row {
+        grid-template-columns: 1.5fr 1fr;
+        grid-auto-rows: auto;
+        row-gap: 8px;
+      }
+
+      .kajian-header div:nth-child(3),
+      .kajian-header div:nth-child(4),
+      .kajian-row div:nth-child(3),
+      .kajian-row div:nth-child(4) {
+        justify-content: flex-start;
+      }
+
+      .tabs {
+        flex-wrap: wrap;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- NAVBAR -->
+    <header class="navbar">
+      <div class="navbar-left">
+        <div class="logo-group">
+          <div>
+            <div class="logo-text-main">Semanggi</div>
+            <div class="logo-text-sub">Brida Surabaya</div>
+          </div>
+        </div>
+        <nav class="nav-links">
+          <div class="nav-link active">Beranda</div>
+          <div class="nav-link-pill">Kajian</div>
+          <div class="nav-link">Galeri Riset</div>
+          <div class="nav-link">Bantuan</div>
+          <div class="nav-link">Contact</div>
+        </nav>
+      </div>
+      <div class="navbar-right">
+        <button class="btn-logout"></button>
+        <div class="profile-avatar"></div>
+        <!-- Ganti src dengan logo asli kalau ada -->
+        <img src="https://placehold.co/82x65" alt="Logo" />
+        <div class="profile-name">Agung Dwi</div>
+      </div>
+    </header>
+
+    <!-- MAIN -->
+    <main class="main">
+      <!-- HERO -->
+      <section class="hero">
+        <h1 class="hero-title">Selamat Datang Agung Dwi</h1>
+        <p class="hero-subtitle">Pantau Progress Usulan-mu!</p>
+      </section>
+
+      <!-- SEARCH -->
+      <section class="search-wrapper">
+        <div class="search-box">
+          <div class="search-icon">
+            <div class="search-icon-inner"></div>
+          </div>
+          <input
+            type="text"
+            class="search-input"
+            placeholder="Cari  kajian..."
+          />
+        </div>
+      </section>
+
+      <!-- TABS -->
+      <section class="tabs">
+        <div class="tab active">Semua</div>
+        <div class="tab">Dalam Proses</div>
+        <div class="tab">Selesai</div>
+        <div class="tab">Ditolak</div>
+      </section>
+
+      <!-- TABEL KAJIAN -->
+      <section class="kajian-table">
+        <!-- Header -->
+        <div class="kajian-header">
+          <div>Judul Kajian</div>
+          <div>Tanggal Pengajuan</div>
+          <div>Status</div>
+          <div>Progres</div>
+        </div>
+
+        <!-- Row 1 -->
+        <div class="kajian-row">
+          <div class="kajian-row-title">
+            Analisis Dampak Lalu Lintas di Jalan Ahmad Yani
+          </div>
+          <div class="kajian-date">2024-07-20</div>
+          <div>
+            <div class="status-badge status-warning">Dalam Proses</div>
+          </div>
+          <div>
+            <div class="progress-wrapper">
+              <div class="progress-bar-bg">
+                <div class="progress-bar-fill progress-75"></div>
+              </div>
+              <div class="progress-value">75</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 2 -->
+        <div class="kajian-row">
+          <div class="kajian-row-title">
+            Studi Kelayakan Pembangunan Gedung Serbaguna
+          </div>
+          <div class="kajian-date">2024-07-15</div>
+          <div>
+            <div class="status-badge status-info">Menunggu Persetujuan</div>
+          </div>
+          <div>
+            <div class="progress-wrapper">
+              <div class="progress-bar-bg">
+                <div class="progress-bar-fill progress-25"></div>
+              </div>
+              <div class="progress-value">25</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 3 -->
+        <div class="kajian-row">
+          <div class="kajian-row-title">
+            Evaluasi Efektivitas Program Pemberdayaan Masyarakat
+          </div>
+          <div class="kajian-date">2024-07-10</div>
+          <div>
+            <div class="status-badge status-success">Selesai</div>
+          </div>
+          <div>
+            <div class="progress-wrapper">
+              <div class="progress-bar-bg">
+                <div class="progress-bar-fill progress-100"></div>
+              </div>
+              <div class="progress-value">100</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 4 -->
+        <div class="kajian-row">
+          <div class="kajian-row-title">
+            Kajian Lingkungan Hidup untuk Proyek Ruang Terbuka Hijau
+          </div>
+          <div class="kajian-date">2024-07-05</div>
+          <div>
+            <div class="status-badge status-danger">Ditolak</div>
+          </div>
+          <div>
+            <div class="progress-wrapper">
+              <div class="progress-bar-bg">
+                <div class="progress-bar-fill progress-0"></div>
+              </div>
+              <div class="progress-value">0</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 5 -->
+        <div class="kajian-row">
+          <div class="kajian-row-title">
+            Analisis Sosial Ekonomi Dampak Pembangunan Infrastruktur
+          </div>
+          <div class="kajian-date">2024-06-30</div>
+          <div>
+            <div class="status-badge status-success">Selesai</div>
+          </div>
+          <div>
+            <div class="progress-wrapper">
+              <div class="progress-bar-bg">
+                <div class="progress-bar-fill progress-100"></div>
+              </div>
+              <div class="progress-value">100</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA BAWAH -->
+      <div class="bottom-cta">
+        <button class="btn-add-kajian">
+          <div class="btn-add-kajian-icon"></div>
+          <span>Tambah Kajian Baru</span>
+        </button>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
